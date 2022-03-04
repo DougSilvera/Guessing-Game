@@ -1,23 +1,39 @@
 ﻿using System;
 
 Console.WriteLine("Guess the secret number between 1 and 50!");
-for (int i = 1; i < 5; i++)
+Console.Write("Choose Your difficulty level (easy, medium or hard)");
+string difficultyInput = Console.ReadLine().ToLower();
+int convertToTries()
 {
-    if (i == 4)
+    if (difficultyInput == "easy")
     {
-        Console.Write($"you have {5 - i} guess remaining.");
+        return 8;
+    } else if (difficultyInput == "medium")
+    {
+        return 6;
+    } else 
+    {
+        return 4;
+    }
+}
+int checkingGuesses = convertToTries() + 1;
+for (int i = 1; i < convertToTries()+1; i++)
+{
+    if (i == convertToTries())
+    {
+        Console.Write($"you have {checkingGuesses - i} guess remaining.");
 
     }
     else
     {
-        Console.Write($"you have {5 - i} guesses remaining.");
+        Console.Write($"you have {checkingGuesses - i} guesses remaining.");
     }
     GuessTheNumber();
 }
 int randomInt()
 {
     Random r = new Random();
-    int genRand = r.Next(1, 101);
+    int genRand = r.Next(1, 51);
     return genRand;
 }
 
