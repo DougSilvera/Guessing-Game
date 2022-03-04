@@ -35,6 +35,13 @@ void GuessTheNumber()
     else
     {
         Console.WriteLine($"Wrong again waterboy!");
+        if (int.Parse(input) > SecretNumber)
+        {
+            Console.WriteLine("Guess is too high!");
+        } else 
+        {
+           Console.WriteLine("Guess is too low!"); 
+        }
     }
 
 }
