@@ -17,6 +17,15 @@ int convertToTries()
     }
 }
 int checkingGuesses = convertToTries() + 1;
+ bool run = true;
+while (run)
+{
+if (difficultyInput == "cheater")
+{
+    GuessTheNumber();
+} else 
+{
+
 for (int i = 1; i < convertToTries()+1; i++)
 {
     if (i == convertToTries())
@@ -29,6 +38,15 @@ for (int i = 1; i < convertToTries()+1; i++)
         Console.Write($"you have {checkingGuesses - i} guesses remaining.");
     }
     GuessTheNumber();
+    if (i == convertToTries())
+    {
+        run = false;
+    }
+}
+
+}
+
+
 }
 int randomInt()
 {
@@ -46,7 +64,7 @@ void GuessTheNumber()
     if (int.Parse(input) == SecretNumber)
     {
         Console.WriteLine("Success! You guessed the number");
-        System.Environment.Exit(0);
+        run = false;
     }
     else
     {
